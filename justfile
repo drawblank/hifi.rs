@@ -29,7 +29,7 @@ build-player target=detected_target $DATABASE_URL="sqlite:///tmp/data.db":
   just install-deps {{target}}
   just build-www
   just add-target {{target}}
-  just install-toolchain "stable" {{target}}
+  just install-toolchain "nightly" {{target}}
   just install-sqlx
   just reset-database
   just build-bin hifi-rs {{target}}
@@ -62,7 +62,7 @@ check-rustup:
 add-target target=detected_target:
   rustup target add {{target}}
 
-install-toolchain kind="stable" target=detected_target:
+install-toolchain kind="nightly" target=detected_target:
   rustup toolchain install {{kind}}-{{target}}
 
 install-sqlx:
